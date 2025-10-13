@@ -1,2 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap");
+
 @import "tailwindcss";
+
 @plugin "daisyui";
+
+@plugin "daisyui/theme" {
+  name: "Neishastylist";
+  default: true;
+  prefersdark: true;
+  color-scheme: "dark";
+  --color-base-100: oklch(100% 0 0);
+  --color-base-200: oklch(98% 0 0);
+  --color-base-300: oklch(95% 0 0);
+  --color-base-content: oklch(21% 0.006 285.885);
+  --color-primary: #ac0c5e;
+  --color-primary-content: oklch(100% 0 0);
+  --color-secondary: #f472b6;
+  --color-secondary-content: oklch(94% 0.028 342.258);
+  --color-accent: #d07b8e;
+  --color-accent-content: oklch(38% 0.063 188.416);
+  --color-neutral: #1f2937;
+  --color-neutral-content: oklch(92% 0.004 286.32);
+  --color-info: #7fbcf5;
+  --color-info-content: oklch(29% 0.066 243.157);
+  --color-success: #72f4b0;
+  --color-success-content: oklch(37% 0.077 168.94);
+  --color-warning: #f4f172;
+  --color-warning-content: oklch(41% 0.112 45.904);
+  --color-error: #f8a0a1;
+  --color-error-content: oklch(27% 0.105 12.094);
+  --radius-selector: 1rem;
+  --radius-field: 1rem;
+  --radius-box: 1rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 2px;
+  --depth: 1;
+  --noise: 0;
+}
+
+@theme {
+  --color-logo-dark: #1f1e1c;
+  --font-header: "Playwrite CU", Arial, Helvetica, sans-serif;
+}

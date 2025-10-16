@@ -21,7 +21,8 @@ export default function SectionWrapper({
   return (
     <section
       id={id}
-      className={`w-full even:bg-logo-dark odd:bg-neutral text-white ${className}`}>
+      className={`w-full even:bg-logo-dark odd:bg-neutral text-white ${className}`}
+    >
       {children}
     </section>
   );

@@ -35,7 +35,7 @@ export default function Dropdown({
   const detailsRef: RefObject<HTMLDetailsElement | null> = useRef(null);
 
   /** Accessibility label for toggle button */
-  let toggleLabel: string = useMemo(() => {
+  const toggleLabel: string = useMemo(() => {
     return `${dropdownOpen ? "Close" : "Open"}${label ? ` ${label} ` : " "}Menu`;
   }, [dropdownOpen, label]);
 
@@ -46,6 +46,7 @@ export default function Dropdown({
    */
   const handleToggle: ToggleEventHandler<HTMLDetailsElement> = (event) => {
     setDropdownOpen(event.currentTarget.open);
+    onToggle?.(event);
   };
 
   /**
@@ -64,7 +65,7 @@ export default function Dropdown({
         setDropdownOpen(false);
       }
     },
-    [dropdownOpen, detailsRef]
+    [dropdownOpen, detailsRef],
   );
 
   useEffect(() => {
@@ -83,12 +84,14 @@ export default function Dropdown({
       ref={detailsRef}
       className={`cursor-pointer ${className}`}
       open={dropdownOpen}
-      onToggle={onToggle}>
+      onToggle={handleToggle}
+    >
       <summary
         aria-expanded={dropdownOpen}
         aria-label={toggleLabel}
         title={toggleLabel}
-        className={`h-full w-full list-none ${toggleClass}`}>
+        className={`h-full w-full list-none ${toggleClass}`}
+      >
         {toggle}
       </summary>
       {menu}

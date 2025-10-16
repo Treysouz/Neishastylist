@@ -99,7 +99,8 @@ export default function Nav() {
   }, []);
   return (
     <nav
-      className={`navbar shadow-sm fixed top-0 px-4 sm:px-8 transition-colors duration-300 ${isScrolled ? "bg-logo-dark shadow-2xl" : "bg-transparent shadow-none!"}`}>
+      className={`z-50 navbar shadow-sm fixed top-0 px-4 sm:px-8 transition-colors duration-300 ${isScrolled ? "bg-logo-dark shadow-2xl" : "bg-transparent shadow-none!"}`}
+    >
       <div className="flex flex-row w-full items-center">
         <header className="w-full cursor-pointer">
           <NavLogo></NavLogo>

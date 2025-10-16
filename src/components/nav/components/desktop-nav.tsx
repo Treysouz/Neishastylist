@@ -11,12 +11,15 @@ interface DesktopNavProps {
 
 function navItem(
   { text, href, sectionId }: NavItemConfig,
-  activeSection: string
+  activeSection: string,
 ) {
   const isActive = sectionId === activeSection;
   return (
     <li key={href}>
-      <NavItem href={href} className={`${isActive ? "border-primary" : ""}`}>
+      <NavItem
+        href={href}
+        className={`p-2 ${isActive ? "border-primary" : ""}`}
+      >
         {text}
       </NavItem>
     </li>
@@ -31,12 +34,13 @@ export default function DesktopNav({
   /** A map of navigation items config to render components for */
   const navItems = useMemo(() => {
     return navItemConfigs.map((config) => navItem(config, activeSection));
-  }, [activeSection]);
+  }, [activeSection, navItemConfigs]);
 
   return (
     <ul
       data-testid="desktop-nav"
-      className="text-white flex-row w-full justify-end p-4 hidden xl:flex">
+      className="text-white flex-row w-full justify-end p-4 hidden xl:flex space-x-4"
+    >
       {navItems}
     </ul>
   );

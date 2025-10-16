@@ -43,3 +43,15 @@
   --color-logo-dark: #1f1e1c;
   --font-header: "Playwrite CU", Arial, Helvetica, sans-serif;
 }
+
+.polka-bg {
+  background-color: #1f1e1c;
+  opacity: 0.5;
+  background-image:
+    radial-gradient(#d07b8e 2px, transparent 2px),
+    radial-gradient(#d07b8e 2px, #1f1e1c 2px);
+  background-size: 80px 80px;
+  background-position:
+    0 0,
+    40px 40px;
+}

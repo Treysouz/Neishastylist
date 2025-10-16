@@ -1,6 +1,7 @@
-import type { ComponentProps, ReactNode } from "react";
+import Link, { LinkProps } from "next/link";
+import type { ReactNode } from "react";
 
-interface NavItemProps extends ComponentProps<"a"> {
+interface NavItemProps extends LinkProps {
   /** Content to render inside the link */
   children?: ReactNode;
   /** Whether this nav item is currently active */
@@ -16,10 +17,11 @@ export default function NavItem({
   ...props
 }: NavItemProps) {
   return (
-    <a
+    <Link
       {...props}
-      className={`btn btn-ghost btn-primary text-base sm:text-xl ${isActive ? "border-primary" : ""} ${className} `}>
+      className={`btn btn-ghost btn-primary text-base sm:text-lg ${isActive ? "border-primary" : ""} ${className} `}
+    >
       {children}
-    </a>
+    </Link>
   );
 }

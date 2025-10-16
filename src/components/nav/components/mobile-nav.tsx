@@ -15,7 +15,8 @@ interface MobileNavProps {
 function dropdownToggle(isOpen: boolean) {
   return (
     <div
-      className={`btn btn-ghost btn-primary p-0 ${isOpen ? "bg-primary" : ""}`}>
+      className={`btn btn-ghost btn-primary p-2 ${isOpen ? "bg-primary" : ""}`}
+    >
       <Icon svg="bars-3" className="size-8 text-white "></Icon>
     </div>
   );
@@ -23,14 +24,15 @@ function dropdownToggle(isOpen: boolean) {
 
 function navItem(
   { text, href, sectionId }: NavItemConfig,
-  activeSection: string
+  activeSection: string,
 ) {
   return (
     <li key={href}>
       <NavItem
         href={href}
         isActive={sectionId === activeSection}
-        className="rounded-none w-full py-6">
+        className="rounded-none w-full py-6"
+      >
         {text}
       </NavItem>
     </li>
@@ -51,7 +53,7 @@ export default function MobileNav({
         {navItemConfigs.map((config) => navItem(config, activeSection))}
       </ul>
     );
-  }, [activeSection]);
+  }, [activeSection, navItemConfigs]);
 
   const handleToggle: ToggleEventHandler<HTMLElement> = (event) => {
     if (
@@ -68,6 +70,7 @@ export default function MobileNav({
       open={isOpen}
       toggle={dropdownToggle(isOpen)}
       menu={dropdownMenu}
-      onToggle={handleToggle}></Dropdown>
+      onToggle={handleToggle}
+    ></Dropdown>
   );
 }

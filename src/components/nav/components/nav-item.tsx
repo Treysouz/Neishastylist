@@ -1,10 +1,9 @@
-import React from "react";
+import Link, { LinkProps } from "next/link";
+import type { ReactNode } from "react";
 
-interface NavItemProps {
-  /** content to render inside the link */
-  children?: string;
-  /** Props for anchor element*/
-  anchorProps?: React.ComponentProps<"a">;
+interface NavItemProps extends LinkProps {
+  /** Content to render inside the link */
+  children?: ReactNode;
   /** Whether this nav item is currently active */
   isActive?: boolean;
   /** Additional CSS classes to apply to the component */
@@ -13,13 +12,16 @@ interface NavItemProps {
 
 export default function NavItem({
   children,
-  anchorProps,
   isActive,
   className,
+  ...props
 }: NavItemProps) {
   return (
-    <a {...anchorProps} className={`btn btn-ghost btn-primary text-xl`}>
+    <Link
+      {...props}
+      className={`btn btn-ghost btn-primary text-base sm:text-lg ${isActive ? "border-primary" : ""} ${className} `}
+    >
       {children}
-    </a>
+    </Link>
   );
 }

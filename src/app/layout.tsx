@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={googleFont.className}>
+    <html lang="en" className={`scroll-smooth ${googleFont.className}`}>
       <body>{children}</body>
     </html>
   );

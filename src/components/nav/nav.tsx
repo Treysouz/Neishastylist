@@ -58,8 +58,8 @@ export default function Nav() {
 
     // Options for observer
     const observerOptions = {
-      threshold: 0.2,
-      rootMargin: "-15% 0px -15% 0px",
+      threshold: 0.5,
+      rootMargin: "-5% 0px -5% 0px",
     };
 
     // Setup observer for current sections.

@@ -6,6 +6,8 @@ export default function NavLogo() {
     <Link className="flex flex-row items-center" href="/">
       <Image
         src="/logo.png"
+        width={undefined}
+        height={undefined}
         alt="Neishastylist"
         className="size-15 sm:size-30 rounded-full shadow-lg z-10"
       ></Image>

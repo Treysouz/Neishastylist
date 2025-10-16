@@ -1,78 +1,119 @@
 "use client";
 
-import Image from "next/image";
-import NavItem from "./components/nav-item";
+import MobileNav from "./components/mobile-nav";
+import NavLogo from "./components/nav-logo";
+import DesktopNav from "./components/desktop-nav";
+import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
+import type { NavItemConfig } from "./nav.types";
 
-interface NavProps {}
+/** Details for each nav item for rendering */
+export const navItemConfigs: NavItemConfig[] = [
+  {
+    text: "Our Work",
+    href: "/#work",
+    sectionId: "work",
+  },
+  {
+    text: "About Us",
+    href: "/#about",
+    sectionId: "about",
+  },
+  {
+    text: "Services",
+    href: "/#services",
+    sectionId: "services",
+  },
+  {
+    text: "Staff",
+    href: "/#staff",
+    sectionId: "staff",
+  },
+  {
+    text: "Contact Us",
+    href: "/#contact",
+    sectionId: "contact",
+  },
+];
 
-export default function Nav({}: NavProps) {
+export default function Nav() {
+  /** Whether the window has been scrolled from the top at all */
   const [isScrolled, setIsScrolled] = useState(false);
+  /** The section of the page currently in view. */
+  const [activeSection, setActiveSection] = useState("");
 
+  /** Current path name */
+  const pathname = usePathname();
+
+  /**
+   * Initiates an IntersectionObserver to track which sections are currently in view.
+   * @returns {observer: IntersectionObserver, pageSections: NodeListOf<Element>} An object containing the observer instance and the sections being observed
+   */
+  const initiateObserver = (): {
+    observer: IntersectionObserver;
+    pageSections: NodeListOf<Element>;
+  } => {
+    // Query sections for the current page
+    const pageSections = document.querySelectorAll("section[id]");
+
+    // Options for observer
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: "-15% 0px -15% 0px",
+    };
+
+    // Setup observer for current sections.
+    const observer = new IntersectionObserver((elements) => {
+      elements.forEach((element) => {
+        if (element.isIntersecting) {
+          // Update actionSection with section in view
+          setActiveSection(element.target.id);
+        }
+      });
+    }, observerOptions);
+
+    // Observe each section to check when it is in view
+    pageSections.forEach((section) => observer.observe(section));
+
+    return { observer, pageSections };
+  };
+
+  /**On mount, initiate observer to get the current section in view */
+  useEffect(() => {
+    const { observer, pageSections } = initiateObserver();
+    // Stop observing old sections
+    return () => {
+      pageSections.forEach((section) => observer.unobserve(section));
+    };
+  }, [pathname]);
+
+  /**On mount, initiate an event listener for scrolling to check whether the window has been scrolled from the top*/
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
     };
 
     window.addEventListener("scroll", handleScroll);
+    //Stop listening to scrolling
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
   return (
-    // <nav
-    //   className={`w-full fixed top-0 h-34 flex flex-row justify-between transition-colors duration-300 z-50 ${
-    //     isScrolled ? "bg-logo-dark shadow-2xl" : "bg-transparent"
-    //   }`}>
-    //   <div className="p-4">
-    //     <a>
-    //       <Image
-    //         src="/logo.png"
-    //         width="208"
-    //         height="208"
-    //         alt="Neishastylist"
-    //         className="size-30 lg:size-50 border border-primary rounded-full shadow-lg"></Image>
-    //     </a>
-    //   </div>
-    //   <div className="flex flex-row space-x-8 font-bold text-lg lg:text-xl text-white text-shadow-2xl h-full items-center p-8">
-    //     <span>About Us</span>
-    //     <span>Our Work</span>
-    //     <span>Services</span>
-    //     <span>Contact Us</span>
-    //   </div>
-    // </nav>
     <nav
       className={`navbar shadow-sm fixed top-0 transition-colors duration-300 ${isScrolled ? "bg-logo-dark shadow-2xl" : "bg-transparent shadow-none!"}`}>
       <div className="flex flex-row w-full items-center">
         <header className="w-full cursor-pointer">
-          <a className="flex flex-row items-center px-4">
-            <Image
-              src="/logo.png"
-              width="120"
-              height="120"
-              alt="Neishastylist"
-              className="size-30 rounded-full shadow-lg z-10"></Image>
-            <h1 className="font-header text-2xl text-accent bg-logo-dark pl-6 py-4 pr-4 font-medium -ml-4 rounded-r-3xl">
-              Neisha Stylist
-            </h1>
-          </a>
+          <NavLogo></NavLogo>
         </header>
-        <div className="text-white flex flex-row w-full justify-end  p-4 ">
-          <ul className="menu menu-horizontal space-x-4">
-            <li>
-              <NavItem className="btn btn-ghost">Our Work</NavItem>
-            </li>
 
-            <li>
-              <NavItem className="btn btn-ghost">Services</NavItem>
-            </li>
-            <li>
-              <NavItem className="btn btn-ghost">About Us</NavItem>
-            </li>
-            <li>
-              <NavItem className="btn btn-ghost">Contact Us</NavItem>
-            </li>
-          </ul>
-        </div>
+        <MobileNav
+          navItemConfigs={navItemConfigs}
+          activeSection={activeSection}
+        />
+
+        <DesktopNav
+          navItemConfigs={navItemConfigs}
+          activeSection={activeSection}
+        />
       </div>
     </nav>
   );

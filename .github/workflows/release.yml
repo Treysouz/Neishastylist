@@ -8,19 +8,19 @@ on:
   workflow_call:
     inputs:
       dry-run:
-        description: 'Run in dry-run mode (no actual release)'
+        description: "Run in dry-run mode (no actual release)"
         required: false
         default: false
         type: boolean
     outputs:
       released:
-        description: 'Whether a new release was created'
+        description: "Whether a new release was created"
         value: ${{ jobs.release.outputs.released }}
       version:
-        description: 'The version that was released'
+        description: "The version that was released"
         value: ${{ jobs.release.outputs.version }}
       release-url:
-        description: 'URL of the GitHub release'
+        description: "URL of the GitHub release"
         value: ${{ jobs.release.outputs.release-url }}
 
 jobs:
@@ -42,8 +42,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '24'
-          cache: 'npm'
+          node-version: "24"
+          cache: "npm"
 
       - name: Cache node_modules
         id: cache

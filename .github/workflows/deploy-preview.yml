@@ -27,7 +27,7 @@ jobs:
     if: needs.test.outputs.tests-passed == 'true'
     uses: ./.github/workflows/deploy.yml
     with:
-      environment: 'Preview'
+      environment: "Preview"
       production: false
     secrets: inherit
 

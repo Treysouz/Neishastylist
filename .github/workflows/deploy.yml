@@ -4,17 +4,17 @@ on:
   workflow_call:
     inputs:
       environment:
-        description: 'Environment to deploy to (Preview/Production)'
+        description: "Environment to deploy to (Preview/Production)"
         required: true
         type: string
       production:
-        description: 'Deploy to production'
+        description: "Deploy to production"
         required: false
         default: false
         type: boolean
     outputs:
       deployment-url:
-        description: 'Deployment URL'
+        description: "Deployment URL"
         value: ${{ jobs.deploy.outputs.deployment-url }}
 
 jobs:
@@ -34,8 +34,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '24'
-          cache: 'npm'
+          node-version: "24"
+          cache: "npm"
 
       - name: Cache node_modules
         id: cache

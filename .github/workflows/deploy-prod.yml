@@ -35,7 +35,7 @@ jobs:
       needs.release.outputs.released == 'true'
     uses: ./.github/workflows/deploy.yml
     with:
-      environment: 'Production'
+      environment: "Production"
       production: true
     secrets: inherit
 

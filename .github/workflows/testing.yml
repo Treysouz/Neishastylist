@@ -4,9 +4,9 @@ on:
   workflow_call:
     inputs:
       branch:
-        description: 'Branch to test'
+        description: "Branch to test"
         required: false
-        default: ''
+        default: ""
         type: string
     secrets:
       SUPABASE_URL:
@@ -15,10 +15,10 @@ on:
         required: true
     outputs:
       tests-passed:
-        description: 'Whether all tests passed'
+        description: "Whether all tests passed"
         value: ${{ jobs.test.outputs.success }}
       coverage-summary:
-        description: 'Test coverage summary'
+        description: "Test coverage summary"
         value: ${{ jobs.test.outputs.coverage-summary }}
 
 jobs:
@@ -42,7 +42,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24
-          cache: 'npm'
+          cache: "npm"
 
       - name: Cache node_modules
         id: cache

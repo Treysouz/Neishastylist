@@ -18,7 +18,7 @@ export default function NavItem({
   return (
     <a
       {...props}
-      className={`btn btn-ghost btn-primary text-xl ${isActive ? "border-primary" : ""} ${className} `}>
+      className={`btn btn-ghost btn-primary text-base sm:text-xl ${isActive ? "border-primary" : ""} ${className} `}>
       {children}
     </a>
   );

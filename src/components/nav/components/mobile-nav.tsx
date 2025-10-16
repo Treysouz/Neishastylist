@@ -14,7 +14,8 @@ interface MobileNavProps {
 
 function dropdownToggle(isOpen: boolean) {
   return (
-    <div className={`btn btn-ghost btn-primary ${isOpen ? "bg-primary" : ""}`}>
+    <div
+      className={`btn btn-ghost btn-primary p-0 ${isOpen ? "bg-primary" : ""}`}>
       <Icon svg="bars-3" className="size-8 text-white "></Icon>
     </div>
   );

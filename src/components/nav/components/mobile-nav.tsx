@@ -24,7 +24,7 @@ function dropdownToggle(isOpen: boolean) {
 
 function navItem(
   { text, href, sectionId }: NavItemConfig,
-  activeSection: string,
+  activeSection: string
 ) {
   return (
     <li key={href}>

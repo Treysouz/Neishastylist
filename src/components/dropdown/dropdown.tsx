@@ -65,7 +65,7 @@ export default function Dropdown({
         setDropdownOpen(false);
       }
     },
-    [dropdownOpen, detailsRef],
+    [dropdownOpen, detailsRef]
   );
 
   useEffect(() => {

@@ -11,7 +11,7 @@ interface DesktopNavProps {
 
 function navItem(
   { text, href, sectionId }: NavItemConfig,
-  activeSection: string,
+  activeSection: string
 ) {
   const isActive = sectionId === activeSection;
   return (

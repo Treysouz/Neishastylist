@@ -9,7 +9,7 @@ describe("Nav Item component", () => {
     render(
       <NavItem href="/#contact" isActive={true}>
         {linkText}
-      </NavItem>,
+      </NavItem>
     );
 
     const link = screen.getByText(linkText);
@@ -23,7 +23,7 @@ describe("Nav Item component", () => {
     render(
       <NavItem href="/#contact" isActive={false}>
         {linkText}
-      </NavItem>,
+      </NavItem>
     );
 
     const link = screen.getByText(linkText);
@@ -37,7 +37,7 @@ describe("Nav Item component", () => {
     render(
       <NavItem href="/#test" className={customClass}>
         Test
-      </NavItem>,
+      </NavItem>
     );
 
     const link = screen.getByText("Test");

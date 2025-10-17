@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
-import { Noto_Sans } from "next/font/google";
+import { Noto_Sans, Playwrite_CU } from "next/font/google";
 import "./globals.css";
 
-const googleFont = Noto_Sans({
+const notoSans = Noto_Sans({
   subsets: ["latin"],
+  variable: "--font-noto-sans",
+});
+
+const playwriteCU = Playwrite_CU({
+  weight: ["100", "200", "300", "400"],
+  variable: "--font-playwrite-cu",
 });
 
 export const metadata: Metadata = {
@@ -17,8 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`scroll-smooth ${googleFont.className}`}>
-      <body>{children}</body>
+    <html lang="en" className={`scroll-smooth ${playwriteCU.variable}`}>
+      <body className={notoSans.className}>{children}</body>
     </html>
   );
 }

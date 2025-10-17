@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap");
-
 @import "tailwindcss";
 
 @plugin "daisyui";
@@ -41,7 +39,7 @@
 
 @theme {
   --color-logo-dark: #1f1e1c;
-  --font-header: "Playwrite CU", Arial, Helvetica, sans-serif;
+  --font-header: var(--font-playwrite-cu), Arial, Helvetica, sans-serif;
 }
 
 .polka-bg {

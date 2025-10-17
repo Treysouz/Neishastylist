@@ -13,10 +13,6 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "types": [
-      "@testing-library/jest-dom",
-      "@testing-library/jest-dom/jest-globals"
-    ],
     "plugins": [
       {
         "name": "next"
@@ -24,7 +20,13 @@
     ],
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "types": [
+      "./cloudflare-env.d.ts",
+      "node",
+      "@testing-library/jest-dom",
+      "@testing-library/jest-dom/jest-globals"
+    ]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]

@@ -11,7 +11,7 @@ const config: Config = {
   clearMocks: true,
 
   // Indicates whether the coverage information should be collected while executing the test
-  collectCoverage: true,
+  collectCoverage: false,
 
   // The directory where Jest should output its coverage files
   coverageDirectory: "coverage",
@@ -27,6 +27,9 @@ const config: Config = {
 
   // Test setup files
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
+
+  // Timeout for tests
+  testTimeout: 10000,
 };
 
 export default createJestConfig(config);

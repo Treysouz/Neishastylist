@@ -58,8 +58,8 @@ export default function Nav() {
 
     // Options for observer
     const observerOptions = {
-      threshold: 0.2,
-      rootMargin: "-15% 0px -15% 0px",
+      threshold: 0.5,
+      rootMargin: "-5% 0px -5% 0px",
     };
 
     // Setup observer for current sections.
@@ -99,7 +99,7 @@ export default function Nav() {
   }, []);
   return (
     <nav
-      className={`z-50 navbar shadow-sm fixed top-0 px-4 sm:px-8 transition-colors duration-300 ${isScrolled ? "bg-logo-dark shadow-2xl" : "bg-transparent shadow-none!"}`}
+      className={`z-50 navbar shadow-sm fixed top-0 px-4 sm:px-8 transition-colors duration-300  ${isScrolled ? "bg-logo-dark shadow-2xl" : "bg-transparent shadow-none!"}`}
     >
       <div className="flex flex-row w-full items-center">
         <header className="w-full cursor-pointer">

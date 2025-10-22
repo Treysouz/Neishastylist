@@ -12,7 +12,7 @@ export default function NavLogo() {
         className="size-15 sm:size-30 rounded-full shadow-lg z-10"
         priority
       />
-      <h1 className="font-header text-lg sm:text-2xl text-accent bg-logo-dark p-4 font-medium">
+      <h1 className="font-header text-lg sm:text-2xl text-accent p-2 sm:p-4 font-medium whitespace-nowrap">
         Neisha Stylist
       </h1>
     </Link>

@@ -22,7 +22,7 @@ export default function AboutSection() {
         <div className="flex flex-col space-y-8 xl:space-y-16 col-span-3 text-center lg:text-left">
           <SectionHeader>About Us</SectionHeader>
 
-          <p className="max-w-4xl col-span-1 text-sm sm:text-base 2xl:text-lg leading-12">
+          <p className="max-w-4xl col-span-1 text-sm sm:text-base 2xl:text-lg leading-8 sm:leading-10 2xl:leading-12">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
             vitae nisi massa. Donec luctus, odio efficitur ullamcorper
             efficitur, sapien quam aliquam erat, in consectetur odio magna eget

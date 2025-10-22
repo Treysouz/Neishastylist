@@ -3,6 +3,7 @@
 import { MobileNav, DesktopNav, NavLogo } from "./components";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
+import clsx from "clsx";
 import type { NavItemConfig } from "./nav.types";
 
 /** Details for each nav item for rendering */
@@ -99,10 +100,20 @@ export default function Nav() {
   }, []);
   return (
     <nav
-      className={`z-50 navbar fixed top-0 px-4 sm:px-8 transition-colors duration-300  ${isScrolled ? "bg-logo-dark shadow-lg" : "bg-transparent shadow-none!"}`}
+      className={clsx(
+        "z-50 navbar fixed top-0 px-4 sm:px-8 transition-colors duration-300",
+        {
+          "bg-logo-dark shadow-lg": isScrolled,
+          "bg-transparent shadow-none!": !isScrolled,
+        }
+      )}
     >
-      <div className="flex flex-row w-full items-center">
-        <header className="w-full cursor-pointer">
+      <div className="flex flex-row w-full items-center justify-between">
+        <header
+          className={clsx("cursor-pointer animate-slide-right", {
+            "bg-logo-dark": !isScrolled,
+          })}
+        >
           <NavLogo />
         </header>
 

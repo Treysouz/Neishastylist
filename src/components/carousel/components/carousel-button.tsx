@@ -31,7 +31,7 @@ export default function CarouselButton({
 
   return (
     <button
-      className="btn btn-ghost btn-primary p-2 rounded-full size-12 sm:size-16 disabled:text-gray-500"
+      className="btn  btn-primary p-2 rounded-full size-12 sm:size-16 disabled:text-gray-500"
       ref={buttonRef}
       disabled={disabled}
       onClick={() => {

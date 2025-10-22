@@ -36,7 +36,7 @@ function DropdownToggle({ isOpen }: DropdownToggleProps) {
 
 function DropdownMenu({ navItemConfigs, activeSection }: DropdownMenuProps) {
   return (
-    <ul className="menu menu-vertical bg-logo-dark shadow-lg border text-white w-64 absolute top-12 right-0 rounded-box">
+    <ul className="menu menu-vertical bg-theme-dark shadow-lg border text-white w-64 absolute top-12 right-0 rounded-box">
       {navItemConfigs.map((config) => {
         const { href, sectionId, text } = config;
         return (

@@ -15,7 +15,7 @@ export default function ServicesSection() {
       className="xl:p-16 p-8 space-y-8 xl:space-y-16"
     >
       <SectionHeader>Services</SectionHeader>
-      <div className="flex flex-row flex-wrap w-full gap-8  justify-center h-full">
+      <div className="flex flex-row flex-wrap w-full gap-8 h-full justify-center">
         <ServiceCard
           svg="hair-care"
           category="Styling"

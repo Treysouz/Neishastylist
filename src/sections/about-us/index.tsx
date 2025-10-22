@@ -1,28 +1,28 @@
-import SectionWrapper from "./section-wrapper";
+import SectionWrapper from "../section-wrapper";
 import { Card } from "@/components";
-import SectionHeader from "./section-header";
+import SectionHeader from "../section-header";
 import Image from "next/image";
 
 export default function AboutSection() {
   return (
     <SectionWrapper
       id="about"
-      className="xl:p-16 p-8 lg:h-dvh lg:max-h-[calc(100vh-128px)] xl:max-h-[calc(100vh-136px)]"
+      className="xl:p-16 p-8 lg:min-h-[calc(100vh-128px)] xl:min-h-[calc(100vh-136px)] flex"
     >
-      <div className="lg:grid grid-cols-5 lg:space-x-16  space-y-8 lg:space-y-0 h-full">
-        <Card className="rounded-box shadow-lg overflow-hidden col-span-2">
+      <div className="h-full lg:grid grid-cols-4 lg:space-x-16 space-y-8 lg:space-y-0 grow">
+        <Card className="rounded-box shadow-lg col-span-2">
           <Image
             src="https://xfsqopvtvhgawpcxjwae.supabase.co/storage/v1/object/public/images/hero.webp"
             width={2560}
             height={1708}
             alt="Neishastylist"
-            className="h-full object-cover"
+            className="h-full object-cover rounded-box"
           />
         </Card>
-        <div className="flex flex-col space-y-8 xl:space-y-16 col-span-3 text-center lg:text-left">
+        <div className="flex flex-col space-y-8 xl:space-y-16 col-span-2 text-center lg:text-left h-full">
           <SectionHeader>About Us</SectionHeader>
 
-          <p className="max-w-4xl col-span-1 text-sm sm:text-base 2xl:text-lg leading-8 sm:leading-10 2xl:leading-12">
+          <p className="text-sm sm:text-base 2xl:text-lg leading-8 sm:leading-10 2xl:leading-12">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
             vitae nisi massa. Donec luctus, odio efficitur ullamcorper
             efficitur, sapien quam aliquam erat, in consectetur odio magna eget

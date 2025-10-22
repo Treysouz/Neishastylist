@@ -25,6 +25,6 @@ describe("Nav Component", () => {
 
     const nav = screen.getByRole("navigation");
 
-    expect(nav).toHaveClass("bg-logo-dark shadow-2xl");
+    expect(nav).toHaveClass("bg-logo-dark shadow-lg");
   });
 });

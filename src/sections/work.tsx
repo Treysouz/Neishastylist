@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import SectionWrapper from "./section-wrapper";
 import { ImageActions } from "@/actions";
 import { ErrorBoundary, Carousel } from "@/components";
+import SectionHeader from "./section-header";
 
 async function Content() {
   try {
@@ -29,9 +30,9 @@ export default async function WorkSection() {
   return (
     <SectionWrapper
       id="work"
-      header="Our Work"
-      className="px-2 py-8 sm:px-6 xl:py-16 xl:px-14 site-section"
+      className="px-2 sm:px-6 xl:px-14 py-8 space-y-8 xl:py-16 xl:space-y-16"
     >
+      <SectionHeader>Our Work</SectionHeader>
       <Suspense fallback={<Fallback />}>
         <Content />
       </Suspense>

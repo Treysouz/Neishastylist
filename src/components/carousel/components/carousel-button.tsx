@@ -37,6 +37,7 @@ export default function CarouselButton({
       onClick={() => {
         scrollCarousel(direction);
       }}
+      aria-label={`Scroll Carousel ${direction === "l" ? "Left" : "Right"}`}
     >
       <Icon
         svg={direction === "l" ? "chevron-left" : "chevron-right"}

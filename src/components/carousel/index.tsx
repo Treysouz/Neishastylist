@@ -55,6 +55,7 @@ export default function Carousel({ imageUrls }: CarouselProps) {
 
       <div
         className="carousel rounded-box w-full space-x-4 sm:space-x-8"
+        tabIndex={0}
         ref={carouselRef}
       >
         {imageUrls.map((imgUrl) => (

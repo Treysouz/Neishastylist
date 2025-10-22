@@ -70,5 +70,5 @@ jobs:
           if [ "${{ inputs.production }}" = "true" ]; then
             echo "deployment-url=<To Be Added>" >> $GITHUB_OUTPUT
           else
-            echo "deployment-url=https://neishastylist-preview.treysouz.workers.dev >> $GITHUB_OUTPUT
+            echo "deployment-url=https://neishastylist-preview.treysouz.workers.dev" >> $GITHUB_OUTPUT
           fi

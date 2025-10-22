@@ -33,7 +33,7 @@ export default function RootLayout({
     >
       <body className={notoSans.className}>
         <NavBar />
-        <div className="relative overflow-auto">
+        <div className="relative overflow-auto h-full">
           <main className="h-full w-full">
             {children}
             <ContactSection />

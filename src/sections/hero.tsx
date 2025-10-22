@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function HeroSection() {
   return (
     <section
@@ -18,9 +20,12 @@ export default function HeroSection() {
           </p>
         </div>
         <div className="p-8 bg-logo-dark">
-          <button className="btn btn-primary text-white btn-lg sm:btn-xl">
+          <Link
+            href="#contact"
+            className="btn btn-primary text-white btn-lg sm:btn-xl"
+          >
             Book an Appointment
-          </button>
+          </Link>
         </div>
       </div>
     </section>

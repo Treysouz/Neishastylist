@@ -5,8 +5,11 @@ import Image from "next/image";
 
 export default function AboutSection() {
   return (
-    <SectionWrapper id="about" className="xl:p-16 p-8">
-      <div className="lg:grid grid-cols-5 lg:space-x-16 lg:h-dvh space-y-8 lg:space-y-0">
+    <SectionWrapper
+      id="about"
+      className="xl:p-16 p-8 lg:h-dvh lg:max-h-[calc(100vh-128px)] xl:max-h-[calc(100vh-136px)]"
+    >
+      <div className="lg:grid grid-cols-5 lg:space-x-16  space-y-8 lg:space-y-0 h-full">
         <Card className="rounded-box shadow-lg overflow-hidden col-span-2">
           <Image
             src="https://xfsqopvtvhgawpcxjwae.supabase.co/storage/v1/object/public/images/hero.webp"

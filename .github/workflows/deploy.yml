@@ -52,6 +52,9 @@ jobs:
 
       - name: Build application with OpenNext
         run: npx opennextjs-cloudflare build
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
 
       - name: Deploy to Cloudflare Workers
         id: deploy

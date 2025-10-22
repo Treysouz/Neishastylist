@@ -1,7 +1,13 @@
-import { MouseEventHandler, useState, type ToggleEventHandler } from "react";
+import {
+  MouseEventHandler,
+  useEffect,
+  useState,
+  type ToggleEventHandler,
+} from "react";
 import { Icon, Dropdown } from "@/components";
 import NavItem from "./nav-item";
 import type { NavItemConfig } from "../nav.types";
+import clsx from "clsx";
 
 interface MobileNavProps {
   /** Details for the nav items */
@@ -29,9 +35,12 @@ interface DropdownMenuProps {
 function DropdownToggle({ isOpen }: DropdownToggleProps) {
   return (
     <div
-      className={`btn btn-ghost btn-primary p-2 ${isOpen ? "bg-primary" : ""}`}
+      className={clsx("btn btn-ghost btn-primary p-2", {
+        "bg-primary": isOpen,
+        "bg-transparent border-none": !isOpen,
+      })}
     >
-      <Icon svg="bars-3" className="size-8 text-white " />
+      <Icon svg="bars-3" className="size-8 text-white" />
     </div>
   );
 }
@@ -77,6 +86,7 @@ export default function MobileNav({
       setIsOpen(event.currentTarget.open);
     }
   };
+
   return (
     <Dropdown
       className="relative xl:hidden"

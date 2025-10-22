@@ -5,7 +5,10 @@ import Image from "next/image";
 
 export default function AboutSection() {
   return (
-    <SectionWrapper id="about" className="xl:p-16 p-8  flex">
+    <SectionWrapper
+      id="about"
+      className="xl:p-16 p-8 lg:min-h-[calc(100dvh-128px)] xl:min-h-[calc(100dvh-136px)] flex"
+    >
       <div className="h-full lg:grid grid-cols-4 lg:space-x-16 space-y-8 lg:space-y-0 grow">
         <Card className="rounded-box shadow-lg col-span-2">
           <Image

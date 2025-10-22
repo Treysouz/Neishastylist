@@ -4,7 +4,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="min-h-dvh flex flex-col items-center justify-center sm:flex-row bg-theme-dark relative  xl:p-16"
+      className="flex flex-col items-center justify-center sm:flex-row bg-theme-dark relative  xl:p-16"
     >
       <div className="z-0 polka-bg absolute top-0 left-0 h-full w-full" />
       <div className="flex flex-col justify-center z-10 items-center animate-fade-in">

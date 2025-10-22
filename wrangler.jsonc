@@ -24,12 +24,16 @@
       "name": "neishastylist-preview",
       "vars": {
         "ENVIRONMENT": "preview",
+        "SUPABASE_URL": "$SUPABASE_URL",
+        "SUPABASE_KEY": "$SUPABASE_KEY",
       },
     },
     "production": {
       "name": "neishastylist",
       "vars": {
         "ENVIRONMENT": "production",
+        "SUPABASE_URL": "$SUPABASE_URL",
+        "SUPABASE_KEY": "$SUPABASE_KEY",
       },
     },
   },

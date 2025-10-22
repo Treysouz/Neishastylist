@@ -16,7 +16,7 @@ const playwriteCU = Playwrite_CU({
 });
 
 export const metadata: Metadata = {
-  title: "Neishastylist - Hair by Design",
+  title: "Neisha Stylist — Hair by Design",
   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
 };
 
@@ -48,9 +48,9 @@ export default function RootLayout({
             >
               Tremayne Souza
             </a>
-            &nbsp;👨🏿‍💻
+            &nbsp;💻
           </span>
-          <span>© 2024 Neisha Stylist. All Rights Reserved.</span>
+          <span>© 2025 Neisha Stylist. All Rights Reserved.</span>
         </footer>
       </body>
     </html>

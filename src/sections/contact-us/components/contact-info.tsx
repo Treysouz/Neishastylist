@@ -44,6 +44,11 @@ export default function ContactInfo() {
           icon="phone"
           text="(347) 237-9564"
         />
+        <ContactLink
+          href="mailto:NeishaStylist@gmail.com"
+          icon="envelope"
+          text="NeishaStylist@gmail.com"
+        />
       </ul>
     </div>
   );

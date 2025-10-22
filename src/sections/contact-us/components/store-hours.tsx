@@ -1,15 +1,27 @@
+import clsx from "clsx";
+
 interface HoursDescriptionProps {
   /** Text to render representing day range for store hours */
   dayRange: string;
   /** Text to render representing time range */
-  timeRange: string;
+  timeRange: string | "CLOSED";
 }
 
 function HoursDescription({ dayRange, timeRange }: HoursDescriptionProps) {
   return (
     <li className="flex flex-row justify-between text-xs sm:text-base lg:text-lg text-white space-x-8">
-      <span className="font-semibold col-span-1">{dayRange}:</span>
-      <span className="col-span-1 whitespace-nowrap">{timeRange}</span>
+      <span className="font-semibold col-span-1 whitespace-nowrap">
+        {dayRange}
+      </span>
+      <div className="text-left">
+        <span
+          className={clsx("col-span-1 whitespace-nowrap", {
+            "font-semibold": timeRange === "CLOSED",
+          })}
+        >
+          {timeRange}
+        </span>
+      </div>
     </li>
   );
 }
@@ -21,13 +33,13 @@ export default function StoreHours() {
         Store Hours
       </h3>
       <ul className="space-y-2">
-        <HoursDescription dayRange="Monday" timeRange="9 AM - 6 PM" />
-        <HoursDescription dayRange="Tuesday" timeRange="9 AM - 6 PM" />
-        <HoursDescription dayRange="Wednesday" timeRange="9 AM - 6 PM" />
-        <HoursDescription dayRange="Thursday" timeRange="9 AM - 6 PM" />
-        <HoursDescription dayRange="Friday" timeRange="9 AM - 6 PM" />
-        <HoursDescription dayRange="Saturday" timeRange="9 AM - 6 PM" />
-        <HoursDescription dayRange="Sunday" timeRange="9 AM - 6 PM" />
+        <HoursDescription dayRange="Monday - Tuesday" timeRange="9 AM - 5 PM" />
+        <HoursDescription dayRange="Wednesday" timeRange="CLOSED" />
+        <HoursDescription
+          dayRange="Thursday - Saturday"
+          timeRange="9 AM - 5 PM"
+        />
+        <HoursDescription dayRange="Sunday" timeRange="CLOSED" />
       </ul>
     </div>
   );

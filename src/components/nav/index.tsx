@@ -108,12 +108,8 @@ export default function Nav() {
         }
       )}
     >
-      <div className="flex flex-row w-full items-center justify-between">
-        <header
-          className={clsx("cursor-pointer animate-slide-right", {
-            "bg-theme-dark": !isScrolled,
-          })}
-        >
+      <div className="flex flex-row w-full items-center justify-between animate-fade-in ">
+        <header className="cursor-pointer animate-slide-right bg-theme-dark shrink-0 rounded-full">
           <NavLogo />
         </header>
 

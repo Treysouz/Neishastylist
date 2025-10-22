@@ -8,18 +8,20 @@ export default function HeroSection() {
     >
       <div className="z-0 polka-bg absolute top-0 left-0 h-full w-full" />
       <div className="flex flex-col justify-center z-10 items-center animate-fade-in">
-        <div className="space-y-8 sm:space-y-16 text-center bg-theme-dark p-8">
-          <p className="text-3xl sm:text-6xl text-accent font-header leading-12">
-            Hair By Design
-          </p>
+        <div className="text-center">
+          <div className="bg-theme-dark p-4 sm:p-8">
+            <p className="text-3xl sm:text-6xl text-accent font-header leading-12 ">
+              Hair By Design
+            </p>
+          </div>
 
-          <p className="text-lg sm:text-3xl text-white leading-8 sm:leading-12 tracking-widest">
+          <p className="p-4 sm:p-8 text-lg sm:text-3xl text-white leading-8 sm:leading-12 tracking-widest bg-theme-dark">
             If You Can Dream It,
             <br />
             We Can Achieve It!
           </p>
         </div>
-        <div className="p-8 bg-theme-dark">
+        <div className="p-4 sm:p-8 bg-theme-dark">
           <Link
             href="#contact"
             className="btn btn-primary text-white btn-lg sm:btn-xl"

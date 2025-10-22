@@ -31,9 +31,9 @@ export default function RootLayout({
       className={`scroll-smooth ${playwriteCU.variable}`}
       data-scroll-behavior="smooth"
     >
-      <body className={`h-dvh ${notoSans.className}`}>
+      <body className={`h-full ${notoSans.className}`}>
         <NavBar />
-        <div className="relative overflow-auto">
+        <div className="relative overflow-auto h-full">
           <main className="h-full w-full">
             {children}
             <ContactSection />

@@ -28,10 +28,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`scroll-smooth h-dvh ${playwriteCU.variable}`}
+      className={`scroll-smooth ${playwriteCU.variable}`}
       data-scroll-behavior="smooth"
     >
-      <body className={notoSans.className}>
+      <body className={`h-dvh ${notoSans.className}`}>
         <NavBar />
         <div className="relative overflow-auto">
           <main className="h-full w-full">

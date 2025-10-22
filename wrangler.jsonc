@@ -27,7 +27,7 @@
       },
     },
     "production": {
-      "name": "neishastylist-production",
+      "name": "neishastylist",
       "vars": {
         "ENVIRONMENT": "production",
       },

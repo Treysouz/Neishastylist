@@ -19,7 +19,7 @@ async function Content() {
             firstName={user.firstName}
             lastName={user.lastName}
             title={user.company.title}
-          ></StaffCard>
+          />
         ))}
       </div>
     );

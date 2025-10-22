@@ -12,7 +12,7 @@ async function Content() {
       throw Error("Failed to get images");
     }
     return (
-      <div className="flex flex-row flex-wrap w-full gap-8 xl:gap-16 justify-center h-full">
+      <div className="flex flex-row flex-wrap w-full gap-8 justify-center h-full">
         {response.users.slice(0, 5).map((user) => (
           <StaffCard
             key={user.id}
@@ -40,7 +40,7 @@ function Fallback() {
 
 export default function StaffSection() {
   return (
-    <SectionWrapper id="work" className="xl:p-16 p-8 space-y-8 xl:space-y-16">
+    <SectionWrapper id="staff" className="xl:p-16 p-8 space-y-8 xl:space-y-16">
       <SectionHeader>Staff</SectionHeader>
       <Suspense fallback={<Fallback />}>
         <Content />

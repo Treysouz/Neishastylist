@@ -20,7 +20,7 @@ async function Content() {
 
 function Fallback() {
   return (
-    <div className="w-full h-full flex items-center justify-center p-8">
+    <div className="w-full flex items-center justify-center p-8">
       <div className="loading loading-spinner loading-xl text-primary" />
     </div>
   );

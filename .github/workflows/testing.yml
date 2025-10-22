@@ -91,7 +91,7 @@ jobs:
           if [ -f coverage/coverage-final.json ]; then
             COVERAGE=$(node -e "
               const fs = require('fs');
-              const coverage = JSON.parse(fs.readFileSync('coverage/coverage-summary.json', 'utf8'));
+              const coverage = JSON.parse(fs.readFileSync('coverage/coverage-final.json', 'utf8'));
               const total = coverage.total;
               console.log(\`📊 **Test Coverage Report**
 

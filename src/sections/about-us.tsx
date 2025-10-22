@@ -26,8 +26,8 @@ export default function AboutSection() {
             nisi. Donec faucibus sollicitudin erat, non sodales dolor
             pellentesque a. Vestibulum venenatis fermentum mauris, eget gravida
             quam hendrerit quis.
-            <br></br>
-            <br></br>
+            <br />
+            <br />
             Cras ultricies felis vel purus ultricies, vitae laoreet nisi rutrum.
             Nam sollicitudin, nulla a blandit scelerisque, dui elit gravida
             magna, eu ornare felis dolor ac elit. Etiam iaculis, metus sed

@@ -1,6 +1,5 @@
-import { describe, expect, it, beforeEach, afterEach } from "@jest/globals";
 import { render, act } from "@testing-library/react";
-import Nav from "./nav";
+import Nav from ".";
 
 beforeEach(() => {
   // Mock IntersectionObserver

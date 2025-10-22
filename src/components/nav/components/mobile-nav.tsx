@@ -1,4 +1,4 @@
-import { useState, useMemo, type ToggleEventHandler } from "react";
+import { useState, type ToggleEventHandler } from "react";
 import { Icon, Dropdown } from "@/components";
 import NavItem from "./nav-item";
 import type { NavItemConfig } from "../nav.types";
@@ -12,30 +12,46 @@ interface MobileNavProps {
   className?: string;
 }
 
-function dropdownToggle(isOpen: boolean) {
+interface DropdownToggleProps {
+  /** Whehter toggle is open */
+  isOpen: boolean;
+}
+
+interface DropdownMenuProps {
+  /**Details for the nav items*/
+  navItemConfigs: NavItemConfig[];
+  /**Section currently in viewport */
+  activeSection: string;
+}
+
+function DropdownToggle({ isOpen }: DropdownToggleProps) {
   return (
     <div
       className={`btn btn-ghost btn-primary p-2 ${isOpen ? "bg-primary" : ""}`}
     >
-      <Icon svg="bars-3" className="size-8 text-white "></Icon>
+      <Icon svg="bars-3" className="size-8 text-white " />
     </div>
   );
 }
 
-function navItem(
-  { text, href, sectionId }: NavItemConfig,
-  activeSection: string
-) {
+function DropdownMenu({ navItemConfigs, activeSection }: DropdownMenuProps) {
   return (
-    <li key={href}>
-      <NavItem
-        href={href}
-        isActive={sectionId === activeSection}
-        className="rounded-none w-full py-6"
-      >
-        {text}
-      </NavItem>
-    </li>
+    <ul className="menu menu-vertical bg-logo-dark shadow-2xl border text-white w-64 absolute top-12 right-0 rounded-2xl">
+      {navItemConfigs.map((config) => {
+        const { href, sectionId, text } = config;
+        return (
+          <li key={href}>
+            <NavItem
+              href={href}
+              isActive={sectionId === activeSection}
+              className="rounded-none w-full py-6"
+            >
+              {text}
+            </NavItem>
+          </li>
+        );
+      })}
+    </ul>
   );
 }
 
@@ -45,15 +61,6 @@ export default function MobileNav({
   navItemConfigs,
 }: MobileNavProps) {
   const [isOpen, setIsOpen] = useState(false);
-
-  /** A map of navigation items config to render components for */
-  const dropdownMenu = useMemo(() => {
-    return (
-      <ul className="menu menu-vertical bg-logo-dark shadow-2xl border text-white w-64 absolute top-12 right-0 rounded-2xl">
-        {navItemConfigs.map((config) => navItem(config, activeSection))}
-      </ul>
-    );
-  }, [activeSection, navItemConfigs]);
 
   const handleToggle: ToggleEventHandler<HTMLElement> = (event) => {
     if (
@@ -68,9 +75,14 @@ export default function MobileNav({
       className="relative xl:hidden"
       label="Mobile Nav"
       open={isOpen}
-      toggle={dropdownToggle(isOpen)}
-      menu={dropdownMenu}
+      toggle={<DropdownToggle isOpen={isOpen} />}
+      menu={
+        <DropdownMenu
+          navItemConfigs={navItemConfigs}
+          activeSection={activeSection}
+        />
+      }
       onToggle={handleToggle}
-    ></Dropdown>
+    />
   );
 }

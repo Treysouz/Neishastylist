@@ -10,7 +10,8 @@ export default function NavLogo() {
         height={1302}
         alt="Neishastylist"
         className="size-15 sm:size-30 rounded-full shadow-lg z-10"
-      ></Image>
+        priority
+      />
       <h1 className="font-header text-lg sm:text-2xl text-accent bg-logo-dark p-4 font-medium">
         Neisha Stylist
       </h1>

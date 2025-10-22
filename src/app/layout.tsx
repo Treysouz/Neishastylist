@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Noto_Sans, Playwrite_CU } from "next/font/google";
+
 import "./globals.css";
 
 const notoSans = Noto_Sans({
@@ -23,7 +24,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`scroll-smooth ${playwriteCU.variable}`}>
+    <html
+      lang="en"
+      className={`scroll-smooth ${playwriteCU.variable}`}
+      data-scroll-behavior="smooth"
+    >
       <body className={notoSans.className}>{children}</body>
     </html>
   );

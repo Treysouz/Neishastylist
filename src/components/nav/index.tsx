@@ -1,8 +1,6 @@
 "use client";
 
-import MobileNav from "./components/mobile-nav";
-import NavLogo from "./components/nav-logo";
-import DesktopNav from "./components/desktop-nav";
+import { MobileNav, DesktopNav, NavLogo } from "./components";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import type { NavItemConfig } from "./nav.types";
@@ -103,7 +101,7 @@ export default function Nav() {
     >
       <div className="flex flex-row w-full items-center">
         <header className="w-full cursor-pointer">
-          <NavLogo></NavLogo>
+          <NavLogo />
         </header>
 
         <MobileNav

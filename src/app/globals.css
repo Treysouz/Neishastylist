@@ -53,3 +53,7 @@
     0 0,
     40px 40px;
 }
+
+.site-section {
+  max-height: calc(100dvh - 126px);
+}

@@ -9,7 +9,7 @@ interface DesktopNavProps {
   activeSection?: string;
 }
 
-function navItem(
+function renderNavItem(
   { text, href, sectionId }: NavItemConfig,
   activeSection: string
 ) {
@@ -33,7 +33,7 @@ export default function DesktopNav({
 }: DesktopNavProps) {
   /** A map of navigation items config to render components for */
   const navItems = useMemo(() => {
-    return navItemConfigs.map((config) => navItem(config, activeSection));
+    return navItemConfigs.map((config) => renderNavItem(config, activeSection));
   }, [activeSection, navItemConfigs]);
 
   return (

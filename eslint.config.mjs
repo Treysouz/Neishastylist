@@ -12,7 +12,18 @@ const compat = new FlatCompat({
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
-    ignores: [".open-next/**", ".next/**"],
+    ignores: [".open-next/**", ".next/**", "cloudlfare-env.d.ts"],
+  },
+  {
+    rules: {
+      "react/self-closing-comp": [
+        "error",
+        {
+          component: true,
+          html: true,
+        },
+      ],
+    },
   },
 ];
 

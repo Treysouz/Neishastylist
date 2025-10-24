@@ -26,7 +26,7 @@ export default function HeroSection() {
             href="#contact"
             className="btn btn-primary text-white btn-lg sm:btn-xl"
           >
-            Book an Appointment
+            Call for an Appointment
           </Link>
         </div>
       </div>

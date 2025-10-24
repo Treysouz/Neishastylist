@@ -12,7 +12,7 @@ export default function StaffCard({
   title,
 }: StaffCardProps) {
   return (
-    <div className="flex flex-col items-center space-y-4 lg:space-y-8 sm:size-54 lg:size-66">
+    <div className="flex flex-col items-center space-y-4 lg:space-y-8 size-37 sm:size-54 lg:size-66">
       <div className="size-20 sm:size-30 lg:size-40 flex items-center justify-center rounded-full p-4 bg-theme-dark shadow-lg">
         <Icon svg="user" className="h-full w-full" />
       </div>

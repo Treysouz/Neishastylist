@@ -23,14 +23,19 @@ export default function SocialBar() {
   return (
     <div className="flex flex-row space-x-4">
       <SocialLink
-        href="https://www.instagram.com/neishastylist/?hl=en"
-        icon="instagram"
-        label="Instagram"
+        href="https://www.tiktok.com/@neishastylistnyc"
+        icon="tiktok"
+        label="TikTok"
       />
       <SocialLink
         href="https://www.facebook.com/NeishaStylist/"
         icon="facebook"
         label="Facebook"
+      />
+      <SocialLink
+        href="https://www.instagram.com/neishastylist/?hl=en"
+        icon="instagram"
+        label="Instagram"
       />
     </div>
   );

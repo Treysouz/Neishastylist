@@ -33,13 +33,10 @@ export default function StoreHours() {
         Store Hours
       </h3>
       <ul className="space-y-2">
-        <HoursDescription dayRange="Monday - Tuesday" timeRange="9 AM - 5 PM" />
-        <HoursDescription dayRange="Wednesday" timeRange="CLOSED" />
         <HoursDescription
-          dayRange="Thursday - Saturday"
+          dayRange="Everyday (By Appointment)"
           timeRange="9 AM - 5 PM"
         />
-        <HoursDescription dayRange="Sunday" timeRange="CLOSED" />
       </ul>
     </div>
   );

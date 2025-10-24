@@ -18,7 +18,7 @@ function ContactLink({ icon, href, text }: ContactLinkProps) {
         rel="noopener"
         className="flex flex-row items-center space-x-2 sm:space-x-4"
       >
-        <Icon className="size-4 sm:size-8 text-accent shrink-0" svg={icon} />
+        <Icon className="size-4 sm:size-6 text-accent shrink-0" svg={icon} />
         <span className="text-xs sm:text-base lg:text-lg text-left">
           {text}
         </span>

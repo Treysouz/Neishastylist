@@ -9,7 +9,7 @@ interface ErrorBoundaryProps {
   message?: string;
 }
 
-const renderMessage = (message?: string) => {
+const Message = ({message}: {message:string}) => {
   if (message) {
     return <span className="lg:text-sm 2xl:text-lg">{message}</span>;
   }
@@ -27,7 +27,7 @@ export default function ErrorBoundary({
         <Icon svg={svg} className="text-primary size-20" />
         <span className="font-bold lg:text-xl 2xl:text-3xl">{header}</span>
 
-        {renderMessage(message)}
+        {<Message message={message}></Message>}
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import { Icon, SVGS } from "@/components";
+import clsx from "clsx";
 
 interface ErrorBoundaryProps {
   /** Icon to render with error*/
@@ -9,7 +10,7 @@ interface ErrorBoundaryProps {
   message?: string;
 }
 
-const Message = ({message}: {message:string}) => {
+const Message = ({ message }: { message: string }) => {
   if (message) {
     return <span className="lg:text-sm 2xl:text-lg">{message}</span>;
   }
@@ -27,7 +28,9 @@ export default function ErrorBoundary({
         <Icon svg={svg} className="text-primary size-20" />
         <span className="font-bold lg:text-xl 2xl:text-3xl">{header}</span>
 
-        {<Message message={message}></Message>}
+        <span className={clsx("lg:text-sm 2xl:text-lg", { hidden: !message })}>
+          {message}
+        </span>
       </div>
     </div>
   );

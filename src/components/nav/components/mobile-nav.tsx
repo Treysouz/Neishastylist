@@ -1,7 +1,8 @@
-import { useState, type ToggleEventHandler } from "react";
+import { MouseEventHandler, useState, type ToggleEventHandler } from "react";
 import { Icon, Dropdown } from "@/components";
 import NavItem from "./nav-item";
 import type { NavItemConfig } from "../nav.types";
+import clsx from "clsx";
 
 interface MobileNavProps {
   /** Details for the nav items */
@@ -22,21 +23,30 @@ interface DropdownMenuProps {
   navItemConfigs: NavItemConfig[];
   /**Section currently in viewport */
   activeSection: string;
+  /**Nav item click handler */
+  onNavItemClick: MouseEventHandler<HTMLAnchorElement>;
 }
 
 function DropdownToggle({ isOpen }: DropdownToggleProps) {
   return (
     <div
-      className={`btn btn-ghost btn-primary p-2 ${isOpen ? "bg-primary" : ""}`}
+      className={clsx("btn btn-ghost btn-primary p-2", {
+        "bg-primary": isOpen,
+        "bg-transparent border-none": !isOpen,
+      })}
     >
-      <Icon svg="bars-3" className="size-8 text-white " />
+      <Icon svg="bars-3" className="size-8 text-white" />
     </div>
   );
 }
 
-function DropdownMenu({ navItemConfigs, activeSection }: DropdownMenuProps) {
+function DropdownMenu({
+  navItemConfigs,
+  activeSection,
+  onNavItemClick,
+}: DropdownMenuProps) {
   return (
-    <ul className="menu menu-vertical bg-logo-dark shadow-lg border text-white w-64 absolute top-12 right-0 rounded-box">
+    <ul className="menu menu-vertical bg-theme-dark shadow-lg border text-white w-64 absolute top-12 right-0 rounded-box">
       {navItemConfigs.map((config) => {
         const { href, sectionId, text } = config;
         return (
@@ -45,6 +55,7 @@ function DropdownMenu({ navItemConfigs, activeSection }: DropdownMenuProps) {
               href={href}
               isActive={sectionId === activeSection}
               className="rounded-none w-full py-6"
+              onClick={onNavItemClick}
             >
               {text}
             </NavItem>
@@ -70,6 +81,7 @@ export default function MobileNav({
       setIsOpen(event.currentTarget.open);
     }
   };
+
   return (
     <Dropdown
       className="relative xl:hidden"
@@ -78,6 +90,7 @@ export default function MobileNav({
       toggle={<DropdownToggle isOpen={isOpen} />}
       menu={
         <DropdownMenu
+          onNavItemClick={() => setIsOpen(false)}
           navItemConfigs={navItemConfigs}
           activeSection={activeSection}
         />

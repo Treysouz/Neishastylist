@@ -38,7 +38,7 @@
 }
 
 @theme {
-  --color-logo-dark: #1f1e1c;
+  --color-theme-dark: #1f1e1c;
   --font-header: var(--font-playwrite-cu), Arial, Helvetica, sans-serif;
   --animate-slide-right: slide-right 0.6s ease-out forwards;
   --animate-fade-in: fade-in 0.6s ease-out forwards;

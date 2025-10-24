@@ -103,17 +103,13 @@ export default function Nav() {
       className={clsx(
         "z-50 navbar fixed top-0 px-4 sm:px-8 transition-colors duration-300",
         {
-          "bg-logo-dark shadow-lg": isScrolled,
+          "bg-theme-dark shadow-lg": isScrolled,
           "bg-transparent shadow-none!": !isScrolled,
         }
       )}
     >
-      <div className="flex flex-row w-full items-center justify-between">
-        <header
-          className={clsx("cursor-pointer animate-slide-right", {
-            "bg-logo-dark": !isScrolled,
-          })}
-        >
+      <div className="flex flex-row w-full items-center justify-between animate-fade-in ">
+        <header className="cursor-pointer animate-slide-right bg-theme-dark shrink-0 rounded-full">
           <NavLogo />
         </header>
 

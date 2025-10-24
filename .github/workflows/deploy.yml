@@ -68,7 +68,7 @@ jobs:
         run: |
           PROJECT_NAME="neishastylist"
           if [ "${{ inputs.production }}" = "true" ]; then
-            echo "deployment-url=<To Be Added>" >> $GITHUB_OUTPUT
+            echo "deployment-url=https://neishastylist.treysouz.workers.dev" >> $GITHUB_OUTPUT
           else
             echo "deployment-url=https://neishastylist-preview.treysouz.workers.dev" >> $GITHUB_OUTPUT
           fi

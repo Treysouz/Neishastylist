@@ -78,6 +78,10 @@ export default function Dropdown({
     };
   }, [handleClickOutside]);
 
+  useEffect(() => {
+    setDropdownOpen(open);
+  }, [open]);
+
   return (
     <details
       data-testid="mobile-nav"

@@ -1,8 +1,8 @@
 import { Suspense } from "react";
-import SectionWrapper from "./section-wrapper";
+import SectionWrapper from "../section-wrapper";
 import { ImageActions } from "@/actions";
 import { ErrorBoundary, Carousel } from "@/components";
-import SectionHeader from "./section-header";
+import SectionHeader from "../section-header";
 
 async function Content() {
   try {

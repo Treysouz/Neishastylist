@@ -13,12 +13,13 @@ async function Content() {
     }
     return (
       <div className="flex flex-row flex-wrap w-full gap-8 justify-center h-full">
-        {response.users.slice(0, 5).map((user) => (
+        {response.users.slice(0, 5).map((user, index) => (
           <StaffCard
-            key={user.id}
             firstName={user.firstName}
             lastName={user.lastName}
             title={user.company.title}
+            key={user.id}
+            animationDelay={index * 0.1}
           />
         ))}
       </div>

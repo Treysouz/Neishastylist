@@ -1,6 +1,13 @@
 "use client";
 
-import { ReactNode, useRef, useMemo, useEffect, useState } from "react";
+import {
+  ReactNode,
+  useRef,
+  useMemo,
+  useEffect,
+  useState,
+  useCallback,
+} from "react";
 import type { RefObject, ToggleEventHandler } from "react";
 
 interface DropdownProps {
@@ -40,7 +47,7 @@ export default function Dropdown({
   }, [dropdownOpen, label]);
 
   /**
-   * Toggle event handler that toggles the navigation menu.
+   * Toggle event handler.
    *
    *  @param {ToggleEvent} event  - Toggle event that occurs when dropdown is toggled
    */
@@ -54,8 +61,8 @@ export default function Dropdown({
    *
    *  @param {MouseEvent} event  - Mouse event that occurs when a click occurs.
    */
-  const handleClickOutside = useMemo(
-    () => (event: MouseEvent) => {
+  const handleClickOutside = useCallback(
+    (event: MouseEvent) => {
       if (
         dropdownOpen &&
         detailsRef?.current &&

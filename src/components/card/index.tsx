@@ -10,10 +10,7 @@ interface CardProps {
 /** Card component */
 export default function Card({ children, className = "" }: CardProps) {
   return (
-    <div
-      data-testid="card"
-      className={`animate-fade-in card rounded-3xl ${className}`}
-    >
+    <div data-testid="card" className={`card rounded-3xl ${className || ""}`}>
       {children}
     </div>
   );

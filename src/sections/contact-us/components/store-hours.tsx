@@ -1,4 +1,7 @@
+"use client";
+
 import clsx from "clsx";
+import { motion } from "motion/react";
 
 interface HoursDescriptionProps {
   /** Text to render representing day range for store hours */
@@ -28,7 +31,13 @@ function HoursDescription({ dayRange, timeRange }: HoursDescriptionProps) {
 
 export default function StoreHours() {
   return (
-    <div className="col-span-1 space-y-4 w-min">
+    <motion.div
+      initial={{ opacity: 0, x: 100 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.4 }}
+      className="col-span-1 space-y-4 w-min"
+    >
       <h3 className="text-accent text-sm sm:text-xl lg:text-2xl font-bold">
         Store Hours
       </h3>
@@ -38,6 +47,6 @@ export default function StoreHours() {
           timeRange="9 AM - 5 PM"
         />
       </ul>
-    </div>
+    </motion.div>
   );
 }

@@ -10,12 +10,6 @@ interface ErrorBoundaryProps {
   message?: string;
 }
 
-const Message = ({ message }: { message: string }) => {
-  if (message) {
-    return <span className="lg:text-sm 2xl:text-lg">{message}</span>;
-  }
-};
-
 // Error boundary component to render when something blows up.
 export default function ErrorBoundary({
   svg,

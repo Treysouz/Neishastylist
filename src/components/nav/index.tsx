@@ -4,6 +4,7 @@ import { MobileNav, DesktopNav, NavLogo } from "./components";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import clsx from "clsx";
+import { motion } from "motion/react";
 import type { NavItemConfig } from "./nav.types";
 
 /** Details for each nav item for rendering */
@@ -58,7 +59,7 @@ export default function Nav() {
     // Options for observer
     const observerOptions = {
       threshold: 0.5,
-      rootMargin: "-5% 0px -5% 0px",
+      rootMargin: "-50px 0px 50px 0px",
     };
 
     // Setup observer for current sections.
@@ -108,8 +109,13 @@ export default function Nav() {
         }
       )}
     >
-      <div className="flex flex-row w-full items-center justify-between animate-fade-in ">
-        <header className="cursor-pointer animate-slide-right bg-theme-dark shrink-0 rounded-full">
+      <motion.div
+        initial={{ opacity: 0, y: -100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+        className="flex flex-row w-full items-center justify-between"
+      >
+        <header className="cursor-pointer  bg-theme-dark shrink-0 rounded-full">
           <NavLogo />
         </header>
 
@@ -122,7 +128,7 @@ export default function Nav() {
           navItemConfigs={navItemConfigs}
           activeSection={activeSection}
         />
-      </div>
+      </motion.div>
     </nav>
   );
 }

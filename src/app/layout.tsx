@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`scroll-smooth ${playwriteCU.variable}`}
+      className={`scroll-smooth  ${playwriteCU.variable}`}
       data-scroll-behavior="smooth"
     >
       <body className={`h-full ${notoSans.className}`}>

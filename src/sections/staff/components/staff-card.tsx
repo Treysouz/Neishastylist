@@ -23,7 +23,7 @@ export default function StaffCard({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ delay: animationDelay }}
       viewport={{ once: true, amount: 0.2 }}
-      className="flex flex-col items-center space-y-4 lg:space-y-8 size-37 sm:size-54 lg:size-66"
+      className="flex flex-col items-center space-y-4 lg:space-y-8 min-h-33 w-33 sm:h-auto sm:w-auto sm:size-54 lg:size-66"
     >
       <div className="size-20 sm:size-30 lg:size-40 flex items-center justify-center rounded-full p-4 bg-theme-dark shadow-lg">
         <Icon svg="user" className="h-full w-full" />

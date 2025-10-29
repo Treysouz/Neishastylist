@@ -16,7 +16,7 @@ export default function ServicesSection() {
     >
       <SectionHeader>Services</SectionHeader>
       <div className="flex flex-row flex-wrap w-full gap-8 h-full justify-center">
-        <div className="flex flex-row flex-wrap gap-8">
+        <div className="flex flex-row flex-wrap gap-8 justify-center">
           <ServiceCard
             svg="hair-care"
             category="Styling"
@@ -29,7 +29,7 @@ export default function ServicesSection() {
             services={PLACEHOLDER_SERVICES}
           />
         </div>
-        <div className="flex flex-row flex-wrap  gap-8">
+        <div className="flex flex-row flex-wrap  gap-8 justify-center">
           <ServiceCard
             svg="spa"
             category="Hair Treatments"

@@ -25,6 +25,7 @@ export default function ServicesSection() {
           <ServiceCard
             svg="scissors"
             category="Haircuts"
+            animationDelay={0.1}
             services={PLACEHOLDER_SERVICES}
           />
         </div>
@@ -33,11 +34,13 @@ export default function ServicesSection() {
             svg="spa"
             category="Hair Treatments"
             services={PLACEHOLDER_SERVICES}
+            animationDelay={0.2}
           />
           <ServiceCard
             svg="paint-brush"
             category="Nails"
             services={PLACEHOLDER_SERVICES}
+            animationDelay={0.3}
           />
         </div>
       </div>

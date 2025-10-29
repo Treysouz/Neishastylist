@@ -1,18 +1,30 @@
+"use client";
+
 import { Icon } from "@/components";
+import { motion } from "motion/react";
 
 interface StaffCardProps {
   firstName: string;
   lastName: string;
   title: string;
+  /**Animation delay */
+  animationDelay?: number;
 }
 
 export default function StaffCard({
   firstName,
   lastName,
   title,
+  animationDelay,
 }: StaffCardProps) {
   return (
-    <div className="flex flex-col items-center space-y-4 lg:space-y-8 size-37 sm:size-54 lg:size-66">
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: animationDelay }}
+      viewport={{ once: true, amount: 0.2 }}
+      className="flex flex-col items-center space-y-4 lg:space-y-8 size-37 sm:size-54 lg:size-66"
+    >
       <div className="size-20 sm:size-30 lg:size-40 flex items-center justify-center rounded-full p-4 bg-theme-dark shadow-lg">
         <Icon svg="user" className="h-full w-full" />
       </div>
@@ -22,6 +34,6 @@ export default function StaffCard({
         </h3>
         <h4 className="text-accent text-xs sm:text-base lg:text-lg">{title}</h4>
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -1,9 +1,17 @@
 "use client";
 
-import { Card } from "@/components";
-import Image from "next/image";
-import { type RefObject, useEffect, useRef, useState } from "react";
+import { Modal } from "@/components";
+import {
+  type RefObject,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import CarouselButton from "./components/carousel-button";
+import ImageCard from "./components/image-card";
+import ImageModalContent from "./components/image-modal-content";
+import { motion } from "motion/react";
 
 interface CarouselProps {
   /** Array of image Urls */
@@ -13,10 +21,14 @@ interface CarouselProps {
 export default function Carousel({ imageUrls }: CarouselProps) {
   const [carouselAtStart, setCarouselAtStart] = useState(false);
   const [carouselAtEnd, setCarouselAtEnd] = useState(false);
+  const [modalImageUrl, setModalImageUrl] = useState<string>("");
 
+  /** Reference to carousel div element */
   const carouselRef: RefObject<HTMLDivElement | null> = useRef(null);
+  /** Reference to modal's dialog element   */
+  const modalRef = useRef<HTMLDialogElement>(null);
 
-  const checkScrollPosition = () => {
+  const checkScrollPosition = useCallback(() => {
     if (carouselRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
 
@@ -26,7 +38,19 @@ export default function Carousel({ imageUrls }: CarouselProps) {
       // Check if at the end (with small tolerance for rounding)
       setCarouselAtEnd(scrollLeft + clientWidth >= scrollWidth - 1);
     }
-  };
+  }, [carouselRef]);
+
+  /**
+   * Opens image modal and sets image url for modal
+   * @param imgUrl
+   */
+  const showImageModal = useCallback(
+    (imgUrl: string) => {
+      modalRef.current?.showModal();
+      setModalImageUrl(imgUrl);
+    },
+    [modalRef]
+  );
 
   useEffect(() => {
     const carousel = carouselRef.current;
@@ -43,43 +67,44 @@ export default function Carousel({ imageUrls }: CarouselProps) {
         carousel.removeEventListener("scroll", checkScrollPosition);
       };
     }
-  }, []);
+  }, [carouselRef, checkScrollPosition]);
 
   return (
-    <div className="flex flex-row items-center space-x-2 sm:space-x-6 xl:space-x-14 w-full">
-      <CarouselButton
-        carouselRef={carouselRef}
-        disabled={carouselAtStart}
-        direction="l"
-      />
-
-      <div
-        className="carousel rounded-box w-full space-x-4 sm:space-x-8"
-        tabIndex={0}
-        ref={carouselRef}
-      >
-        {imageUrls.map((imgUrl) => (
-          <Card
-            className="card carousel-item w-32 h-40 md:w-64 md:h-80 xl:w-80 xl:h-100 shadow-lg"
-            key={imgUrl}
-          >
-            <Image
-              src={imgUrl}
-              className="rounded-box object-cover h-full w-full"
-              sizes="128px 160px, (min-width:768px) 256px 320px, (min-width:1280px) 320px 400px"
+    <div className="w-full h-full">
+      <Modal ref={modalRef}>
+        <ImageModalContent imgUrl={modalImageUrl} />
+      </Modal>
+      <div className="flex flex-row items-center space-x-2 sm:space-x-6 xl:space-x-14 w-full">
+        <CarouselButton
+          carouselRef={carouselRef}
+          disabled={carouselAtStart}
+          direction="l"
+        />
+        <motion.div
+          className="carousel overflow-y-hidden rounded-box w-full space-x-4 sm:space-x-8"
+          tabIndex={0}
+          initial={{ opacity: 0, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          ref={carouselRef}
+        >
+          {imageUrls.map((imgUrl) => (
+            <ImageCard
+              imgUrl={imgUrl}
+              onClick={() => {
+                showImageModal(imgUrl);
+              }}
               key={imgUrl}
-              fill
-              alt="Work"
             />
-          </Card>
-        ))}
-      </div>
+          ))}
+        </motion.div>
 
-      <CarouselButton
-        carouselRef={carouselRef}
-        disabled={carouselAtEnd}
-        direction="r"
-      />
+        <CarouselButton
+          carouselRef={carouselRef}
+          disabled={carouselAtEnd}
+          direction="r"
+        />
+      </div>
     </div>
   );
 }

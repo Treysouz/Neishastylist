@@ -1,7 +1,10 @@
+"use client";
+
 import SectionWrapper from "../section-wrapper";
 import { Card } from "@/components";
 import SectionHeader from "../section-header";
 import Image from "next/image";
+import { motion } from "motion/react";
 
 export default function AboutSection() {
   return (
@@ -10,16 +13,29 @@ export default function AboutSection() {
       className="xl:p-16 p-8 lg:min-h-[calc(100dvh-128px)] xl:min-h-[calc(100dvh-136px)] flex"
     >
       <div className="h-full lg:grid grid-cols-4 lg:space-x-16 space-y-8 lg:space-y-0 grow">
-        <Card className="rounded-box shadow-lg col-span-2">
-          <Image
-            src="https://xfsqopvtvhgawpcxjwae.supabase.co/storage/v1/object/public/images/hero.webp"
-            width={2560}
-            height={1708}
-            alt="Neishastylist"
-            className="h-full object-cover rounded-box"
-          />
-        </Card>
-        <div className="flex flex-col space-y-8 xl:space-y-16 col-span-2 text-center lg:text-left h-full">
+        <motion.div
+          className="col-span-2"
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <Card className="rounded-box shadow-lg h-full">
+            <Image
+              src="https://xfsqopvtvhgawpcxjwae.supabase.co/storage/v1/object/public/images/hero.webp"
+              width={2560}
+              height={1708}
+              alt="Neishastylist"
+              className="h-full object-cover rounded-box"
+            />
+          </Card>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          className="flex flex-col space-y-8 xl:space-y-16 col-span-2 text-center lg:text-left h-full"
+        >
           <SectionHeader>About Us</SectionHeader>
 
           <p className="text-sm sm:text-base 2xl:text-lg leading-8 sm:leading-10 2xl:leading-12">
@@ -38,7 +54,7 @@ export default function AboutSection() {
             neque. Class aptent taciti sociosqu ad litora torquent per conubia
             nostra, per inceptos himenaeos.
           </p>
-        </div>
+        </motion.div>
       </div>
     </SectionWrapper>
   );

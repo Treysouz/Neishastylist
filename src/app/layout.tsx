@@ -31,9 +31,9 @@ export default function RootLayout({
       className={`scroll-smooth ${playwriteCU.variable}`}
       data-scroll-behavior="smooth"
     >
-      <body className={`min-h-dvh ${notoSans.className}`}>
+      <body className={`min-h-dvh flex flex-col  ${notoSans.className}`}>
         <NavBar />
-        <main className="flex flex-col flex-1">
+        <main className="flex-1">
           {children}
           <ContactSection />
         </main>

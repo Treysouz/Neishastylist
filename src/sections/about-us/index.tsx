@@ -18,6 +18,7 @@ export default function AboutSection() {
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.4 }}
         >
           <Card className="rounded-box shadow-lg h-full">
             <Image
@@ -34,6 +35,7 @@ export default function AboutSection() {
           initial={{ opacity: 0, x: 100 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.4 }}
           className="flex flex-col space-y-8 xl:space-y-16 col-span-2 text-center lg:text-left h-full"
         >
           <SectionHeader>About Us</SectionHeader>

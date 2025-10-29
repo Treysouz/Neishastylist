@@ -28,17 +28,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`scroll-smooth  ${playwriteCU.variable}`}
+      className={`scroll-smooth h-dvh ${playwriteCU.variable}`}
       data-scroll-behavior="smooth"
     >
-      <body className={`h-full ${notoSans.className}`}>
+      <body className={`${notoSans.className}`}>
         <NavBar />
-        <div className="relative overflow-auto h-full">
-          <main className="h-full w-full">
-            {children}
-            <ContactSection />
-          </main>
-        </div>
+        <main>
+          {children}
+          <ContactSection />
+        </main>
         <footer className="text-gray-400 bg-theme-dark text-xs sm:text-sm flex flex-col space-y-2 text-center px-8 pb-8 xl:px-16 xl:pb-17">
           <span>
             Made by&nbsp;

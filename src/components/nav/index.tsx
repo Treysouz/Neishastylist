@@ -110,17 +110,14 @@ export default function Nav() {
       )}
     >
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        initial={{ opacity: 0, y: -100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
         className="flex flex-row w-full items-center justify-between"
       >
-        <motion.header
-          initial={{ opacity: 0, x: -100 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="cursor-pointer  bg-theme-dark shrink-0 rounded-full"
-        >
+        <header className="cursor-pointer  bg-theme-dark shrink-0 rounded-full">
           <NavLogo />
-        </motion.header>
+        </header>
 
         <MobileNav
           navItemConfigs={navItemConfigs}

@@ -24,7 +24,7 @@ export default function ServiceCard({
     <motion.div
       initial={{ opacity: 0, y: 100 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ delay: animationDelay }}
+      transition={{ delay: animationDelay, duration: 0.4 }}
       viewport={{ once: true, amount: 0.2 }}
     >
       <Card className="bg-neutral p-4 lg:p-8 flex flex-col items-center justify-center space-y-4 lg:space-y-8 w-full sm:w-auto shadow-lg">

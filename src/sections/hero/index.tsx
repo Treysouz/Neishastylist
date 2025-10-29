@@ -11,6 +11,7 @@ export default function HeroSection() {
     >
       <div className="z-0 polka-bg absolute top-0 left-0 h-full w-full" />
       <motion.div
+        transition={{ duration: 0.4 }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.2 }}

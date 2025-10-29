@@ -21,7 +21,7 @@ export default function StaffCard({
     <motion.div
       initial={{ opacity: 0, y: 100 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ delay: animationDelay }}
+      transition={{ delay: animationDelay, duration: 0.4 }}
       viewport={{ once: true, amount: 0.2 }}
       className="flex flex-col items-center space-y-4 lg:space-y-8 min-h-33 w-33 sm:h-auto sm:w-auto sm:size-54 lg:size-66"
     >

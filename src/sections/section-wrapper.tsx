@@ -21,13 +21,14 @@ export default function SectionWrapper({
   return (
     <section
       id={id}
-      className="even:bg-theme-dark odd:bg-neutral scroll-mt-16 sm:scroll-mt-32 xl:scroll-mt-34"
+      className="even:bg-theme-dark odd:bg-neutral scroll-mt-16 sm:scroll-mt-32 xl:scroll-mt-34 overflow-hidden"
     >
       <motion.div
         className={`w-full flex flex-col items-center text-white  ${className || ""}`}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.4 }}
       >
         {children}
       </motion.div>

@@ -7,7 +7,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="h-dvh flex flex-col items-center justify-center sm:flex-row bg-theme-dark relative xl:p-16"
+      className="h-screen flex flex-col items-center justify-center sm:flex-row bg-theme-dark relative xl:p-16"
     >
       <div className="z-0 polka-bg absolute top-0 left-0 h-full w-full" />
       <motion.div

@@ -8,7 +8,7 @@ import {
 
 export default function Home() {
   return (
-    <div className="h-full w-full">
+    <div className="w-full">
       <HeroSection />
       <WorkSection />
       <AboutSection />

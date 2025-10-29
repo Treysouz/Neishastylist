@@ -28,12 +28,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`scroll-smooth h-full ${playwriteCU.variable}`}
+      className={`scroll-smooth h-dvh bg-theme-dark ${playwriteCU.variable}`}
       data-scroll-behavior="smooth"
     >
-      <body className={`h-full ${notoSans.className}`}>
+      <body className={`flex flex-col h-full ${notoSans.className}`}>
         <NavBar />
-        <main>
+        <main className="grow">
           {children}
           <ContactSection />
         </main>

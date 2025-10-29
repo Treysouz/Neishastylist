@@ -1,4 +1,7 @@
+"use client";
+
 import { Icon, SVGS } from "@/components";
+import { motion } from "motion/react";
 
 interface ContactLinkProps {
   /** SVG icon to render for link */
@@ -29,7 +32,13 @@ function ContactLink({ icon, href, text }: ContactLinkProps) {
 
 export default function ContactInfo() {
   return (
-    <div className="col-span-1 space-y-4">
+    <motion.div
+      initial={{ opacity: 0, x: -100 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.4 }}
+      className="col-span-1 space-y-4"
+    >
       <h3 className="text-accent text-sm sm:text-xl lg:text-2xl font-bold">
         Contact Info
       </h3>
@@ -50,6 +59,6 @@ export default function ContactInfo() {
           text="NeishaStylist@gmail.com"
         />
       </ul>
-    </div>
+    </motion.div>
   );
 }

@@ -1,6 +1,5 @@
-import SectionWrapper from "../section-wrapper";
 import ServiceCard from "./components/service-card";
-import SectionHeader from "../section-header";
+import { SectionWrapper, SectionHeader } from "..";
 
 const PLACEHOLDER_SERVICES = [
   "Lorem ipsum dolor sit amet",

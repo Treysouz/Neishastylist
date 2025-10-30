@@ -10,6 +10,7 @@ interface CarouselButtonProps {
   disabled?: boolean;
 }
 
+/** Button for scrolling image carousel component */
 export default function CarouselButton({
   direction,
   carouselRef,
@@ -17,6 +18,10 @@ export default function CarouselButton({
 }: CarouselButtonProps) {
   const buttonRef: RefObject<HTMLButtonElement | null> = useRef(null);
 
+  /**
+   * onClick handler for carousel button that scrolls carousel on click
+   * @param {"l" | "r"} direction - Which direction to scroll carousel
+   */
   const scrollCarousel = useCallback(
     (direction: "l" | "r") => {
       const carousel = carouselRef?.current;

@@ -1,5 +1,5 @@
 import { test, expect } from "@playwright/test";
-import { navItemConfigs } from "@/components/nav";
+import { navItemConfigs } from "@/components/nav/nav";
 
 test.describe("Navigation", () => {
   test.beforeEach(async ({ page }) => {

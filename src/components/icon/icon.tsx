@@ -9,5 +9,5 @@ interface IconProps {
 
 /** Component for displaying SVG icons with type safety. */
 export default function Icon({ svg, className }: IconProps) {
-  return <span className={`inline-block ${className}`}>{SVGS[svg]}</span>;
+  return <span className={`inline-block ${className || ""}`}>{SVGS[svg]}</span>;
 }

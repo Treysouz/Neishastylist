@@ -1,8 +1,5 @@
-import SectionHeader from "../section-header";
-import SectionWrapper from "../section-wrapper";
-import SocialBar from "./components/social-bar";
-import StoreHours from "./components/store-hours";
-import ContactInfo from "./components/contact-info";
+import { SectionWrapper, SectionHeader } from "..";
+import { SocialBar, StoreHours, ContactInfo } from "./components";
 
 export default function ContactSection() {
   return (

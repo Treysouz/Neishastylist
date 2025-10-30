@@ -93,7 +93,7 @@ export default function Dropdown({
     <details
       data-testid="mobile-nav"
       ref={detailsRef}
-      className={`cursor-pointer ${className}`}
+      className={`cursor-pointer ${className || ""}`}
       open={dropdownOpen}
       onToggle={handleToggle}
     >

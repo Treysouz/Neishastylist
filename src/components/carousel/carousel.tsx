@@ -8,9 +8,7 @@ import {
   useRef,
   useState,
 } from "react";
-import CarouselButton from "./components/carousel-button";
-import ImageCard from "./components/image-card";
-import ImageModalContent from "./components/image-modal-content";
+import { CarouselButton, ImageCard, ImageModalContent } from "./components";
 import { motion } from "motion/react";
 
 interface CarouselProps {
@@ -19,8 +17,11 @@ interface CarouselProps {
 }
 
 export default function Carousel({ imageUrls }: CarouselProps) {
+  /**Whether carousel has been scrolled to its start */
   const [carouselAtStart, setCarouselAtStart] = useState(false);
+  /**Whether carousel has been scrolled to its end */
   const [carouselAtEnd, setCarouselAtEnd] = useState(false);
+  /**Url for image to render in image modal component */
   const [modalImageUrl, setModalImageUrl] = useState<string>("");
 
   /** Reference to carousel div element */
@@ -82,6 +83,7 @@ export default function Carousel({ imageUrls }: CarouselProps) {
         />
         <motion.div
           className="carousel overflow-y-hidden rounded-box w-full space-x-4 sm:space-x-8"
+          data-testid="carousel"
           tabIndex={0}
           initial={{ opacity: 0, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}

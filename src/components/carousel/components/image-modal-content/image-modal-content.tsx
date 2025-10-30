@@ -8,6 +8,7 @@ interface ImageModalContentProps {
   imgUrl: string;
 }
 
+/** Content to render in modal when an image card component is clicked */
 export default function ImageModalContent({ imgUrl }: ImageModalContentProps) {
   const [dimensions, setDimensions] = useState<{
     width: number;

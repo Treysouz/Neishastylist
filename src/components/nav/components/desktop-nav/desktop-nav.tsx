@@ -1,6 +1,6 @@
-import NavItem from "./nav-item";
+import NavItem from "../nav-item/nav-item";
 import { useMemo } from "react";
-import type { NavItemConfig } from "../nav.types";
+import type { NavItemConfig } from "../../nav.types";
 
 interface DesktopNavProps {
   /** Details for the nav items */

@@ -1,7 +1,7 @@
 import { MouseEventHandler, useState, type ToggleEventHandler } from "react";
 import { Icon, Dropdown } from "@/components";
-import NavItem from "./nav-item";
-import type { NavItemConfig } from "../nav.types";
+import NavItem from "../nav-item/nav-item";
+import type { NavItemConfig } from "../../nav.types";
 import clsx from "clsx";
 
 interface MobileNavProps {

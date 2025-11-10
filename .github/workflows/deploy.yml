@@ -50,11 +50,15 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
 
-      - name: Build application with Vercel
-        run: npx vercel build ${{ inputs.production && '--prod' || '' }}
+      - name: Pull Vercel project settings
+        run: npx vercel pull --yes --environment=${{ inputs.production && 'production' || 'preview' }} --token=${{ secrets.VERCEL_TOKEN }}
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      - name: Build application with Vercel
+        run: npx vercel build ${{ inputs.production && '--prod' || '' }}
+        env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
 

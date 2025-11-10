@@ -44,7 +44,7 @@ A modern portfolio website for a professional hairstylist salon, showcasing thei
 
 ### Prerequisites
 
-- **Node.js 24.x**
+- **Node.js 22.x**
 - **npm**
 
 ### Installation
@@ -148,25 +148,6 @@ npm test
 ## Deployment
 
 This project is deployed to [Vercel](https://vercel.com) using GitHub Actions.
-
-### Deployment Workflow
-
-- **Preview Deployments**: Automatically triggered on pull requests to `main`
-- **Production Deployments**: Automatically triggered on pushes to `main` after tests pass and a release is created
-
-### Manual Deployment
-
-You can trigger deployments manually from the GitHub Actions tab using the workflow dispatch option.
-
-### Required Secrets
-
-The following secrets must be configured in your GitHub repository settings:
-
-- `VERCEL_TOKEN` - Vercel authentication token
-- `VERCEL_ORG_ID` - Vercel organization ID
-- `VERCEL_PROJECT_ID` - Vercel project ID
-- `SUPABASE_URL` - Supabase project URL
-- `SUPABASE_KEY` - Supabase anonymous key
 
 ## CI/CD
 

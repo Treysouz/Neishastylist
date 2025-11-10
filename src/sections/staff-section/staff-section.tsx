@@ -1,5 +1,4 @@
-import SectionWrapper from "../section-wrapper";
-import SectionHeader from "../section-header";
+import { SectionWrapper, SectionHeader } from "..";
 import StaffCard from "./components/staff-card";
 import { Suspense } from "react";
 import { ErrorBoundary } from "@/components";

@@ -9,9 +9,10 @@ interface ImageCardProps {
   onClick?: MouseEventHandler;
 }
 
+/** Card component that wraps an image for the carousel component */
 export default function ImageCard({ imgUrl, onClick }: ImageCardProps) {
   return (
-    <button onClick={onClick}>
+    <button onClick={onClick} aria-label="View Image">
       <Card
         className="card carousel-item w-32 h-40 md:w-64 md:h-80 xl:w-80 xl:h-100 shadow-lg"
         key={imgUrl}

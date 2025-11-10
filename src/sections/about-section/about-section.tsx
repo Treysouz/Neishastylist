@@ -1,8 +1,7 @@
 "use client";
 
-import SectionWrapper from "../section-wrapper";
+import { SectionWrapper, SectionHeader } from "..";
 import { Card } from "@/components";
-import SectionHeader from "../section-header";
 import Image from "next/image";
 import { motion } from "motion/react";
 

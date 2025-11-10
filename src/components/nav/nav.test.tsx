@@ -1,5 +1,5 @@
 import { render, act } from "@testing-library/react";
-import Nav from ".";
+import Nav from "./nav";
 
 beforeEach(() => {
   // Mock IntersectionObserver

@@ -50,20 +50,20 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
 
-      - name: Build application
-        run: npm run build
+      - name: Build application with Vercel
+        run: npx vercel build ${{ inputs.production && '--prod' || '' }}
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
 
       - name: Verify build output
         run: |
-          if [ ! -d ".next" ]; then
-            echo "❌ .next directory not found!"
+          if [ ! -d ".vercel/output" ]; then
+            echo "❌ .vercel/output directory not found!"
             exit 1
           fi
           echo "✅ Build output verified:"
-          ls -la .next/
+          ls -la .vercel/output/
           echo "📦 Build artifacts ready for deployment"
 
       - name: Deploy to Vercel

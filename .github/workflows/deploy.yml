@@ -76,10 +76,12 @@ jobs:
 
       - name: Deploy to Vercel
         id: deploy
-        run: npx vercel deploy --prebuilt ${{ inputs.production && '--prod' || '' }} --token=${{ secrets.VERCEL_TOKEN }}
+        run: |
+          DEPLOYMENT_URL=$(npx vercel deploy --prebuilt ${{ inputs.production && '--prod' || '' }} --token=${{ secrets.VERCEL_TOKEN }})
+          echo "url=$DEPLOYMENT_URL" >> $GITHUB_OUTPUT
+          echo "Deployed to: $DEPLOYMENT_URL"
 
       - name: Set deployment URL
         id: set-url
         run: |
-          # The Vercel action always outputs to preview-url, even for production
-          echo "deployment-url=${{ steps.deploy.outputs.preview-url }}" >> $GITHUB_OUTPUT
+          echo "deployment-url=${{ steps.deploy.outputs.url }}" >> $GITHUB_OUTPUT

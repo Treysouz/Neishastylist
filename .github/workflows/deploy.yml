@@ -56,6 +56,16 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
 
+      - name: Verify build output
+        run: |
+          if [ ! -d ".next" ]; then
+            echo "❌ .next directory not found!"
+            exit 1
+          fi
+          echo "✅ Build output verified:"
+          ls -la .next/
+          echo "📦 Build artifacts ready for deployment"
+
       - name: Deploy to Vercel
         id: deploy
         uses: amondnet/vercel-action@v25
@@ -63,7 +73,7 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          vercel-args: ${{ inputs.production && '--prod' || '' }}
+          vercel-args: ${{ inputs.production && '--prod --prebuilt' || '--prebuilt' }}
           working-directory: ./
 
       - name: Set deployment URL

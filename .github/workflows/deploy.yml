@@ -76,7 +76,7 @@ jobs:
 
       - name: Deploy to Vercel
         id: deploy
-        run: vercel deploy --prebuilt ${{ inputs.production && '--prod' || '' }} --token=${{ secrets.VERCEL_TOKEN }}
+        run: npx vercel deploy --prebuilt ${{ inputs.production && '--prod' || '' }} --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Set deployment URL
         id: set-url

@@ -94,22 +94,22 @@ jobs:
               echo "version=$VERSION" >> $GITHUB_OUTPUT
               echo "release-url=https://github.com/${{ github.repository }}/releases/tag/v$VERSION" >> $GITHUB_OUTPUT
               echo "✅ Released version $VERSION"
-            elif echo "$OUTPUT" | grep -qi "no release"; then
+            elif echo "$OUTPUT" | grep -qi "no release\|branch.*is behind\|branch is up to date"; then
               echo "released=false" >> $GITHUB_OUTPUT
               echo "version=" >> $GITHUB_OUTPUT
               echo "release-url=" >> $GITHUB_OUTPUT
-              echo "ℹ️ No release created (no releasable changes)"
+              echo "ℹ️ No release created (no releasable changes or branch not ahead)"
             else
+              # Semantic release failed or had an unexpected outcome
               echo "released=false" >> $GITHUB_OUTPUT
               echo "version=" >> $GITHUB_OUTPUT
               echo "release-url=" >> $GITHUB_OUTPUT
               echo "❌ Semantic release failed with exit code $EXIT_CODE"
               echo "🔍 Check the output above for details"
 
-              # Don't fail the step immediately - let the workflow continue
-              # The calling workflow can check the 'released' output
+              # Fail the pipeline if exit code is non-zero
               if [ $EXIT_CODE -ne 0 ]; then
-                echo "⚠️ Warning: Semantic release encountered an error but workflow will continue"
+                exit $EXIT_CODE
               fi
             fi
           fi

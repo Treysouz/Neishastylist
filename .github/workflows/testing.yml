@@ -13,10 +13,6 @@ on:
         required: true
       SUPABASE_KEY:
         required: true
-    outputs:
-      tests-passed:
-        description: "Whether all tests passed"
-        value: ${{ jobs.test.outputs.success }}
 
 jobs:
   test:
@@ -25,8 +21,6 @@ jobs:
     env:
       SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
       SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
-    outputs:
-      success: ${{ steps.mark-success.outputs.success }}
 
     steps:
       - name: Checkout
@@ -80,12 +74,3 @@ jobs:
         run: |
           echo "🖥️ Running e2e tests..."
           npm run test:e2e
-
-      - name: Mark tests as successful
-        id: mark-success
-        if: success()
-        run: echo "success=true" >> $GITHUB_OUTPUT
-
-      - name: Mark tests as failed
-        if: failure()
-        run: echo "success=false" >> $GITHUB_OUTPUT

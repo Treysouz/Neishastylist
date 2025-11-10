@@ -50,25 +50,24 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
 
-      - name: Build application with OpenNext
-        run: npx opennextjs-cloudflare build
+      - name: Build application
+        run: npm run build
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
 
-      - name: Deploy to Cloudflare Workers
+      - name: Deploy to Vercel
         id: deploy
-        run: npx opennextjs-cloudflare deploy --env ${{ inputs.production && 'production' || 'preview' }}
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: ${{ inputs.production && '--prod' || '' }}
+          working-directory: ./
 
       - name: Set deployment URL
         id: set-url
         run: |
-          PROJECT_NAME="neishastylist"
-          if [ "${{ inputs.production }}" = "true" ]; then
-            echo "deployment-url=https://neishastylist.treysouz.workers.dev" >> $GITHUB_OUTPUT
-          else
-            echo "deployment-url=https://neishastylist-preview.treysouz.workers.dev" >> $GITHUB_OUTPUT
-          fi
+          # The Vercel action always outputs to preview-url, even for production
+          echo "deployment-url=${{ steps.deploy.outputs.preview-url }}" >> $GITHUB_OUTPUT

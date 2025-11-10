@@ -31,7 +31,6 @@ jobs:
     name: Deploy Production
     needs: [test, release]
     if: |
-      needs.test.result == 'success' &&
       needs.release.outputs.released == 'true'
     uses: ./.github/workflows/deploy.yml
     with:

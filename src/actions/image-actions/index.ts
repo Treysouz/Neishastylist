@@ -10,6 +10,9 @@ const supabase = await getSupabase();
 
 export async function getWorkImages() {
   try {
+    if (!supabase) {
+      return [];
+    }
     const { data, error } = await supabase.storage
       .from("images")
       .list("portfolio");

@@ -19,7 +19,7 @@ export default function NavItem({
   return (
     <Link
       {...props}
-      className={`btn btn-ghost btn-primary text-base sm:text-lg bg-theme-dark ${isActive ? "border-primary" : ""} ${className || ""} `}
+      className={`btn btn-ghost btn-primary text-white text-base sm:text-lg bg-theme-dark ${isActive ? "border-primary" : ""} ${className || ""} `}
     >
       {children}
     </Link>
